@@ -6,8 +6,7 @@ return ข้อความต้อนรับในรูปแบบ string
 
 """
 def welcome_message(name, course):
-    # Your Problem 1 solution
-    pass
+    return f"Welcome {name} to {course} class!"
 
 """ เขียน function ชื่อ calculate_circle ที่มีคุณสมบัติดังนี้:
 
@@ -17,8 +16,10 @@ return dictionary ที่มี area และ circumference
 ปัดเศษทั้งสองค่าให้เหลือ 2 ตำแหน่งหลังจุดทศนิยม """
 
 def calculate_circle(radius):
-    # Your Problem 2 solution
-    pass
+    pi = 3.14159
+    area = round(pi * radius ** 2, 2)
+    circumference = round(2 * pi * radius, 2)
+    return {"area": area, "circumference": circumference}
 
 """ เขียน function ชื่อ create_user_profile ที่มีคุณสมบัติดังนี้:
 
@@ -29,8 +30,8 @@ return string ที่จัดรูปแบบข้อมูลผู้ใ
 """
 
 def create_user_profile(username, age=18, premium=False):
-    # Your Problem 3 solution
-    pass
+    user_type = "Premium User" if premium else "Standard User"
+    return f"{username} (age: {age}) - {user_type}"
 
 """ เขียน function ชื่อ analyze_scores ที่มีคุณสมบัติดังนี้:
 
@@ -44,8 +45,22 @@ lowest: คะแนนต่ำสุด
 passed: จำนวนคะแนนที่ >= 70 """
 
 def analyze_scores(scores):
-    # Your Problem 4 solution
-    pass
+    if not scores:
+        return {"total": 0, "average": 0.0, "highest": 0, "lowest": 0, "passed": 0}
+
+    total = sum(scores)
+    average = round(total / len(scores), 1)
+    highest = max(scores)
+    lowest = min(scores)
+    passed = sum(1 for score in scores if score >= 70)
+
+    return {
+        "total": total,
+        "average": average,
+        "highest": highest,
+        "lowest": lowest,
+        "passed": passed,
+    }
 
 """ เขียน function ชื่อ count_vowels_consonants ที่มีคุณสมบัติดังนี้:
 
@@ -55,8 +70,19 @@ return dictionary ที่มี vowels และ consonants counts
 ไม่สนใจตัวใหญ่ตัวเล็ก (case insensitive) """
 
 def count_vowels_consonants(text):
-    # Your Problem 5 solution
-    pass
+    vowels = "aeiou"
+    text = text.lower()
+    vowel_count = 0
+    consonant_count = 0
+
+    for ch in text:
+        if ch.isalpha():
+            if ch in vowels:
+                vowel_count += 1
+            else:
+                consonant_count += 1
+
+    return {"vowels": vowel_count, "consonants": consonant_count}
 
 # =============================================================================
 # TEST SECTION - DO NOT MODIFY
